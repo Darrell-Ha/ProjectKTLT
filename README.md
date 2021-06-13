@@ -9,6 +9,7 @@
 ## 2. Hướng dẫn sử dụng chương trình
 
 >***Lưu ý:*** Ở máy tính Windows 10, nếu không dùng IDE như *DevC, CodeBlock....* thì cần thực hiện ở terminal là `C:Windows\System32\conhost.exe` để chạy chương trình vì chương trình dùng bảng mã màu hệ cũ theo tiêu chuẩn [ANSI](https://vi.wikipedia.org/wiki/Vi%E1%BB%87n_Ti%C3%AAu_chu%E1%BA%A9n_Qu%E1%BB%91c_gia_Hoa_K%E1%BB%B3) - nay console WIN32 không còn đọc được.
+
 >***Lưu ý:*** Đặt toàn bộ folder vào trong ổ `D:`. Nếu không, cần thực hiện thay đổi nội dung cho `#include` các file trong folder [sources](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources) và [headerForPro.h](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources/headerForPro.h)
 * ***Ý tưởng tạo menu***: Theo cây thư mục , mục lục văn bản để chia chức năng chương trình cha, chương trình con (section/subsection)
 * Ở giao diện **Menu bar**
