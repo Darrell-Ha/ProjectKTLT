@@ -25,7 +25,7 @@ Mỗi 1 file Header chứa các thông tin và hàm chức năng để tương t
 
 * Khi dữ liệu đã được ghi vào file `.bin` do đã đảm bảo được **tính đúng đắn** và **nhất quán** nên mỗi một bản ghi ( trong 1 file `.bin` bất kì ) sẽ có 1 vị trí xác định. Như vậy, vị trí của bản ghi đóng vai trò quan trọng trong việc **đọc dữ liệu** file `.bin` lên màn hình console và **xác định sự tồn tại** của bản ghi.
 
-## Các hàm cơ bản của một file `.bin`
+## Các hàm cơ bản để tương tác một file `.bin`
 
 *Ví dụ với [SV.h](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources/entities/SV.h) và file [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin)*
 * Thủ tục ghi dữ liệu: 
