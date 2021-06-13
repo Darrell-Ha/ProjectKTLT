@@ -1,8 +1,0 @@
-V.          TẠO MENU 
-<MỘT SỐ QUY ĐỊNH - Cụ thể trong file Program.h - sau được MENU.h include thông qua 2 file chương trình con Section1/2>
-    - Màu: dùng trong bảng mã màu ANSI = 1 chuỗi kí tự máy tính đọc có thể hiểu và in ra màu
-    - Phím tương tác
-            enum switchKey {KEY_UP = 72, KEY_DOWN = 80, KEY_RIGHT = 77, KEY_LEFT = 75, ESC=27};
-    
-    <VIDEO>
-    
