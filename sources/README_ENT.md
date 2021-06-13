@@ -1,10 +1,10 @@
 # **Topic 6: Student Information System (SIS) - by 20195851 & 20195849**
 
-## 1. Hướng dẫn sử dụng các file  trong folder [entity]()
-**Lưu ý:** *trước khi test cần phải include file [headerForPro.h]() vào trong file [main.c]() để có thể chạy được các hàm trong đó.*
+## 1. Hướng dẫn sử dụng các file  trong folder [entity](https://github.com/jhongithub219/ProjectKTLT/tree/master/sources/entities)
+**Lưu ý:** *trước khi test cần phải include file [headerForPro.h](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources/headerForPro.h) vào trong file [main.c](https://github.com/jhongithub219/ProjectKTLT/blob/master/main.c) để có thể chạy được các hàm trong đó.*
 ### *Chi tiết các hàm có trong file* 
 
-Mỗi 1 file Header chứa các thông tin và hàm chức năng để tương tác với file nhị phân tương ứng ( ví dụ file [SV.h]() tương tương tác tương ứng với [SV.bin]() )
+Mỗi 1 file Header chứa các thông tin và hàm chức năng để tương tác với file nhị phân tương ứng ( ví dụ file [SV.h](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources/entities/SV.h) tương tương tác tương ứng với [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin) )
 
 * Một sinh viên bao gồm 4 thông tin chính đó là: *Mã số sinh viên, Ngày tháng năm sinh* và *Giới tính*. Các thông tin chính được gộp lại tạo thành 1 bản ghi ( Ví dụ `struct SinhVien` gồm 7 thuộc tính ). Các file khác tương tự
 
@@ -27,12 +27,12 @@ Mỗi 1 file Header chứa các thông tin và hàm chức năng để tương t
 
 ## Các hàm cơ bản của một file `.bin`
 
-*Ví dụ với [SV.h]() và file [SV.bin]*
+*Ví dụ với [SV.h](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources/entities/SV.h) và file [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin)*
 * Thủ tục ghi dữ liệu: 
     * **INPUT:** một struct Sinh viên mang thông tin cho một sinh viên
     * **OUTPUT:** vị trí của bản ghi mới trong file `SV.bin`
     * Viết vào file thành công sẽ in ra thông báo ~SUCCESS...~, nếu không sẽ báo lỗi thông qua `printf("ERROR!")`
-    * **Ràng buộc:** *Chỉ cho phép ghi vào sinh viên* ***chưa tồn tại bản ghi*** *trong file [SV.bin]()*
+    * **Ràng buộc:** *Chỉ cho phép ghi vào sinh viên* ***chưa tồn tại bản ghi*** *trong file [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin)*
     ```
     int WriteSV_toBIN(struct SinhVien new_SV);
     ``` 
@@ -47,17 +47,17 @@ Mỗi 1 file Header chứa các thông tin và hàm chức năng để tương t
 * Hàm Xóa dữ liệu bản ghi:
     * **INPUT:** một MSSV của sinh viên đang cần được xóa dữ liệu
     * **OUTPUT:** Trả về 0 về đã xóa thành công hoặc -1 nếu thất bại 
-    * **Ràng buộc:** *Chỉ cho phép xóa nếu dữ liệu Sinh viên* ***có tồn tại*** *trong file [SV.bin]()*
+    * **Ràng buộc:** *Chỉ cho phép xóa nếu dữ liệu Sinh viên* ***có tồn tại*** *trong file [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin)*
 
     ```
     int Delete_SV(long MSSV);
     ```
 * Hàm Cập nhật dữ liệu:
-    * **INPUT:** một MSSV của sinh viên cần cập nhật và một 1 bản ghi mới cho sinh viên đó 
+    * **INPUT:** một MSSV của sinh viên cần cập nhật, 1 bản ghi mới cho sinh viên đó và vị trí trong file 
     * **OUTPUT:** 0 nếu update thành công, -1 nếu có sự cố xảy ra
-    * **Ràng buộc:** *Chỉ cho phép update sinh viên* ***có tồn tại*** trong file [SV.bin]() 
+    * **Ràng buộc:** *Chỉ cho phép update sinh viên* ***có tồn tại*** trong file [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin) 
     ```
-    int Update_SV(long MSSV, struct SinhVien new_recordSV);
+    int Update_SV(long MSSV, struct SinhVien new_recordSV, int position);
     ```
 * **EXTRA:** Hàm Kiểm tra sự tồn tại của bản ghi
     * **IN:** một MSSV cần kiểm tra sự tồn tại của bản ghi
