@@ -1,4 +1,8 @@
-# **Topic 6: Student Information System (SIS) - by 20195851 & 20195849**
+# **Topic 6: Student Information System (SIS)**
+
+## Nhóm sinh viên:
+   * Hà Trọng Đạt - 20195851 - MI1-02
+   * Trịnh Xuân Đăng - 20195849 - MI1-02
 
 ## 1. Hướng dẫn sử dụng các file header trong [*sources/entities*](https://github.com/jhongithub219/ProjectKTLT/tree/master/sources/entities)  - [link](https://github.com/jhongithub219/ProjectKTLT/blob/master/sources/README_ENT.md)
 
