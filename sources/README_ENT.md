@@ -31,7 +31,7 @@ Mỗi 1 file Header chứa các thông tin và hàm chức năng để tương t
 * Thủ tục ghi dữ liệu: 
     * **INPUT:** một struct Sinh viên mang thông tin cho một sinh viên
     * **OUTPUT:** vị trí của bản ghi mới trong file `SV.bin`
-    * Viết vào file thành công sẽ in ra thông báo ~SUCCESS...~, nếu không sẽ báo lỗi thông qua `printf("ERROR!")`
+    * Viết vào file thành công sẽ in ra thông báo `SUCCESS...`, nếu không sẽ báo lỗi thông qua `printf("ERROR!")`
     * **Ràng buộc:** *Chỉ cho phép ghi vào sinh viên* ***chưa tồn tại bản ghi*** *trong file [SV.bin](https://github.com/jhongithub219/ProjectKTLT/blob/master/fileBin/SV.bin)*
     ```
     int WriteSV_toBIN(struct SinhVien new_SV);
