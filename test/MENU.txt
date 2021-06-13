@@ -1,0 +1,6 @@
+// #define COL_BG          REDHB          /// Màu nền cho header menu
+// #define COL_Txt_inBG    UBLK           /// Chữ được hiển thị trong màu nền đó
+// #define COL_Font        BHRED          /// Màu Chữ
+// #define COL_Font_Notice BHCYN          /// Màu chữ thông báo
+// #define COL_Font_Warn   BHYEL          /// Màu chữ cảnh báo
+// #define COL_Font_Check  HGRN           /// Màu chữ 

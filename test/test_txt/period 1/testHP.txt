@@ -1,0 +1,280 @@
+II.            TEST HOC PHAN
+
+<Các hàm phụ khác chi tiết trong file code>
+
+<HÀM CHỨC NĂNG PHỤ NHƯNG ĐÓNG VAI TRÒ QUAN TRỌNG>
+    <Cấu trúc tương tự với bên SV.h>
+Hàm CheckExist_HP_toPosition(char infor[]) 
+Hàm ChangeStruct_To_HP_bin(int position,HP new_hpan)
+            
+
+
+1. Kiểm tra việc nhập dữ liệu
+    a, MONG MUỐN:
+        - Việc nhập dữ liệu phải đúng thông tin, không bị lặp dữ liệu
+        - Đảm bảo tính nhất quán dữ liệu
+            +  Mỗi học phần chỉ có 1 mã học phần
+            +  Một học phần bất kì có trong file là duy nhất
+
+
+    - Hàm WriteHP_ToBIN(struct HocPhan hphan) -- Ghi học phần vào file HP.bin
+        IN: học phần bất kỳ miễn là chưa tồn tại trong file
+        - Tiến hành kiểm tra HP.bin xem trong file đã tồn tại học phần này hay chưa
+        - Nếu đã tồn tại: 
+            => In ra màn hình thông báo học phần đã tồn tại 
+                và Không thêm vào file, thủ túc kết thúc
+          Trái lại: 
+            => Thêm vào file và in thông báo thành công
+
+        
+        ** Hiện tại file Học phần đang trống
+        ************************************
+        Ta thử tiến hành nhập các môn học sau dưới dạng struct HocPhan
+
+            HP hp1 = {"MI3030","Xac_suat_thong_ke", 4};
+            HP hp2 = {"MI3310", "Ky_thuat_lap_trinh", 2};
+            HP hp3 = {"MI3090", "Co_so_du_lieu", 3};
+            HP hp4 = {"MI3060", "CTDL_va_GT",3};
+            HP hp5 = {"MI3041", "Giai_tich_so",2};
+            WriteHP_ToBIN(hp1);
+            printf("\n");
+            WriteHP_ToBIN(hp2);
+            printf("\n");
+            WriteHP_ToBIN(hp3);
+            printf("\n");
+            WriteHP_ToBIN(hp4);
+            printf("\n");
+            WriteHP_ToBIN(hp5);
+            printf("\n");
+        
+    
+    * file HP.bin đang chứa những nội dung như thế nào?
+    Thực hiện câu lệnh   Print_HP_bin();
+
+        **Kết quả ----------------------------********************************************************************
+
+            THIS SUBJECT: MI3030 DOESN'T EXIST!!
+            INSERT SUCCESSFULLY!!
+
+            THIS SUBJECT: MI3310 DOESN'T EXIST!!
+            INSERT SUCCESSFULLY!!
+
+            THIS SUBJECT: MI3090 DOESN'T EXIST!!
+            INSERT SUCCESSFULLY!!
+
+            THIS SUBJECT: MI3060 DOESN'T EXIST!!
+            INSERT SUCCESSFULLY!!
+
+            THIS SUBJECT: MI3041 DOESN'T EXIST!!
+            INSERT SUCCESSFULLY!!
+
+                        +---------------------------------------------------------+
+                        |               DANH SACH CAC HOC PHAN HIEN CO            |
+                        +-----+----------------+-----------------------+----------+
+                        | STT |   Ma hoc phan  |      Ten hoc phan     |So tin chi|
+                        +-----+----------------+-----------------------+----------+
+                        |  1  |      MI3030    |   Xac_suat_thong_ke   |    4     |
+                        +-----+----------------+-----------------------+----------+
+                        |  2  |      MI3310    |  Ky_thuat_lap_trinh   |    2     |
+                        +-----+----------------+-----------------------+----------+
+                        |  3  |      MI3090    |       Co_so_du_lieu   |    3     |
+                        +-----+----------------+-----------------------+----------+
+                        |  4  |      MI3060    |          CTDL_va_GT   |    3     |
+                        +-----+----------------+-----------------------+----------+
+                        |  5  |      MI3041    |        Giai_tich_so   |    2     |
+                        +-----+----------------+-----------------------+----------+
+
+        ***********************************************************************************************************
+    * COMMENT
+        - Quá trình insert data trực tiếp vào file HP.bin thành công 
+        - Đảm bảo tính đúng đắn của dữ liệu
+    *
+
+    b, Tiến hành thử lại
+    Thực hiện lại những câu lệnh phía trên lại
+            HP hp1 = {"MI3030","Xac_suat_thong_ke", 4};
+            HP hp2 = {"MI3310", "Ky_thuat_lap_trinh", 2};
+            HP hp3 = {"MI3090", "Co_so_du_lieu", 3};
+            HP hp4 = {"MI3060", "CTDL_va_GT",3};
+            HP hp5 = {"MI3041", "Giai_tich_so",2};
+            WriteHP_ToBIN(hp1);
+            printf("\n");
+            WriteHP_ToBIN(hp2);
+            printf("\n");
+            WriteHP_ToBIN(hp3);
+            printf("\n");
+            WriteHP_ToBIN(hp4);
+            printf("\n");
+            WriteHP_ToBIN(hp5);
+            printf("\n");
+            Print_HP_bin();
+    
+    Để kiểm nghiệm lại xem nếu data đã tồn tại, việc nhập hàm có diễn ra hay không
+
+        *Kết quả------------****************************************************************************
+
+            THIS SUBJECT: MI3030 EXISTED!!!!
+            PLEASE READ "HP.bin" AGAIN BEFORE INSERTING ANOTHER!!
+
+            THIS SUBJECT: MI3310 EXISTED!!!!
+            PLEASE READ "HP.bin" AGAIN BEFORE INSERTING ANOTHER!!
+
+            THIS SUBJECT: MI3090 EXISTED!!!!
+            PLEASE READ "HP.bin" AGAIN BEFORE INSERTING ANOTHER!!
+
+            THIS SUBJECT: MI3060 EXISTED!!!!
+            PLEASE READ "HP.bin" AGAIN BEFORE INSERTING ANOTHER!!
+
+            THIS SUBJECT: MI3041 EXISTED!!!!
+            PLEASE READ "HP.bin" AGAIN BEFORE INSERTING ANOTHER!!
+
+
+                                    +---------------------------------------------------------+
+                                    |               DANH SACH CAC HOC PHAN HIEN CO            |
+                                    +-----+----------------+-----------------------+----------+
+                                    | STT |   Ma hoc phan  |      Ten hoc phan     |So tin chi|
+                                    +-----+----------------+-----------------------+----------+
+                                    |  1  |      MI3030    |   Xac_suat_thong_ke   |    4     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  2  |      MI3310    |  Ky_thuat_lap_trinh   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  3  |      MI3090    |       Co_so_du_lieu   |    3     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  4  |      MI3060    |          CTDL_va_GT   |    3     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  5  |      MI3041    |        Giai_tich_so   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+
+        *********************************************************************************************************
+    *COMMENT
+        - Việc nhập vào data đã được kiểm soát lại nhờ vào việc kiểm tra sự tồn tại của 
+          dữ liệu trong file bằng hàm CheckExist
+        - Thử nghiệm thành công
+    *
+
+2. Kiểm nghiệm hàm Xóa dữ liệu trong bản ghi
+
+    * Mong muốn: Xóa đúng thông tin, không xóa tràn lan, đảm bảo xóa đúng - đủ
+
+    - Hàm Delete_HP(char maHP[])
+    IN: xâu ký tự chứa thông tin về mã học phần/tên học phần 
+    OUT: 0 nếu xóa thành công, -1 nếu gặp vấn đề trong lúc xóa
+    - Tiến hành kiểm tra sự tồn tại của học phần
+         -Nếu đã tồn tại, thủ tục kết thúc và báo lỗi
+         -Nếu không, thì tiếp tục tiến trình và lấy kết quả vị trí học phần từ hàm CheckExist_HP_toPosition(char infor[])
+     - Tiến hành thay thế vị trí đó trong file bởi 1 blank HP - Hàm ChangeStruct_To_HP_bin(char maHP[]); 
+     - Nếu xóa thành công sẽ hiển thị thông báo ra màn hình và in kết quả
+     
+    Xóa thông tin học phần: 
+
+    ** Hiện tại trong file bin đang có 5 môn học như trên
+
+    Ví dụ: ta thử xóa môn Xac_suat_thong_ke (stt1)
+
+        Delete_HP("MI3030");
+    
+        *Kết quả:---------------*******************************************************************************
+
+            THIS SUBJECT: MI3030 EXISTED!!!!
+            RESULT: 
+
+                                    +---------------------------------------------------------+
+                                    |               DANH SACH CAC HOC PHAN HIEN CO            |
+                                    +-----+----------------+-----------------------+----------+
+                                    | STT |   Ma hoc phan  |      Ten hoc phan     |So tin chi|
+                                    +-----+----------------+-----------------------+----------+
+                                    |  1  |      MI3310    |  Ky_thuat_lap_trinh   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  2  |      MI3090    |       Co_so_du_lieu   |    3     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  3  |      MI3060    |          CTDL_va_GT   |    3     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  4  |      MI3041    |        Giai_tich_so   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+            DELETE "MI3030" SUCCESSFULLY!!
+
+        *********************************************************************************************************
+
+        *COMMENT
+            Thành công
+        *
+
+    b, Kiểm nghiệm tính đúng đắn: Xóa một học phần không có trong file
+    Hiện tại Xac_suat_thong_ke đã không còn trong file,
+    Thử tiếp tục dùng câu lệnh: Delete_HP("MI3030");
+
+        *Kết quả:-----------------*********************************************************************************
+        
+            THIS SUBJECT: MI3030 DOESN'T EXIST!!
+            DELETE FAIL!!!
+        
+        ************************************************************************************************************
+
+    *COMMENT
+        Thành công
+    *
+
+3. Kiểm tra hàm cập nhật dữ liệu file SV.bin
+
+    *Mong muốn: chỉ cập nhật dữ liệu môn học đã tồn tại trong file
+
+    Hàm Update_HP(char maHP[], HP new_hpan)
+    IN: (infor)xâu ký tự về mã học phần/tên học phần
+        xâu ký tự về mã học phần mới (nếu không thay đổi thì để "")
+        xâu ký tự về tên học phần mới (nếu không thay đổi thì để "")
+        số tín chỉ mới(nếu không thay đổi để -1)
+    OUT:0 nếu update thành công, -1 nếu gặp vấn đề trong quá trình
+    - Từ thông tin đầu vào, tiến hành kiểm tra trong file xem học phần đã tồn tại hay chưa??
+    - Nếu chưa tồn tại
+           Ngừng hàm, báo lỗi chưa tồn tại ra màn hình
+      Nếu đã tồn tại 
+            Tiếp tục tiến hành các bước sau
+    - Kiểm tra liệu NDUng đầu vào liệu có làm thay đổi HP không??
+        Nếu có: Tiếp tục thực hiện
+        Nếu không: trả về thông báo không có sự thay đổi gì
+    - Thực hiện thay đổi tùy ý(lựa chọn thay đổi thông tin đến khi phù hợp)
+    - Sau khi thực hiện thay đổi, 
+        tiến hành thay thế học phần (thay trực tiếp tại file, tại dòng của học phần cũ)
+        thông báo thay đổi thành công, và in ra màn hình danh sách hiện tại
+        (Thông báo những thông tin đã được thay đổi)
+     
+    
+
+    * Thử tiến hành thay đổi môn KTLT thành tư tưởng HCM mà không thay đổi MSSV và số tín chỉ
+
+        HP new_hphan = {"","Tu_tuong_HCM",-1};
+        Update_HP("MI3310", new_hphan);
+
+        * Kết quả-------------------------------*****************************************************
+
+            THIS SUBJECT: MI3310 EXISTED!!!!
+                                    +-----+----------------+-----------------------+----------+
+                                    | STT |   Ma hoc phan  |      Ten hoc phan     |So tin chi|
+                                    +-----+----------------+-----------------------+----------+
+                                    |  1  |      MI3310    |  Ky_thuat_lap_trinh   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+            THIS SUBJECT: Tu_tuong_HCM DOESN'T EXIST!!
+            THIS SUBJECT: MI3310 EXISTED!!!!
+            RESULT:
+
+                                    +---------------------------------------------------------+
+                                    |               DANH SACH CAC HOC PHAN HIEN CO            |
+                                    +-----+----------------+-----------------------+----------+
+                                    | STT |   Ma hoc phan  |      Ten hoc phan     |So tin chi|
+                                    +-----+----------------+-----------------------+----------+
+                                    |  1  |      MI3310    |        Tu_tuong_HCM   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  2  |      MI3090    |       Co_so_du_lieu   |    3     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  3  |      MI3060    |          CTDL_va_GT   |    3     |
+                                    +-----+----------------+-----------------------+----------+
+                                    |  4  |      MI3041    |        Giai_tich_so   |    2     |
+                                    +-----+----------------+-----------------------+----------+
+            UPDATE MI3310 to Tu_tuong_HCM SUCCESSFULLY!!
+
+        *******************************************************************************************   
+        *COMMENT
+            Cập nhật thành cống
+        * 
+
+<Còn lại sẽ được kiểm nghiệm thong qua PROGRAM>
